@@ -38,20 +38,37 @@ const AddBook = () => {
       <ContentContainer>
         <img src={coverBook} alt="book" />
         <FormContainer>
-          <StyledInput placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <StyledInput
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            data-cy="title-input"
+          />
           <StyledInput
             placeholder="Author (a): Name Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
+            data-cy="author-input"
           />
           <StyledTextArea
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            data-cy="description-input"
           />
-          <StyledInput placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-          <StyledInput placeholder="Img URL" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />
-          <Button onClick={handleAddBook}>
+          <StyledInput
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            data-cy="price-input"
+          />
+          <StyledInput
+            placeholder="Img URL"
+            value={imgUrl}
+            onChange={(e) => setImgUrl(e.target.value)}
+            data-cy="img-url-input"
+          />
+          <Button onClick={handleAddBook} data-cy="add-book-button">
             <PiPlus />
           </Button>
         </FormContainer>

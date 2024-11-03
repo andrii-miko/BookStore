@@ -49,11 +49,11 @@ const Book = () => {
       <BookContainer>
         <img src={book.cover} alt={book.title} />
         <BookInfoContainer>
-          <h1>{book.title}</h1>
-          <StyledInput value={book.author} disabled />
-          <StyledTextArea value={truncateText(book.description)} disabled rows={7} />
+          <h1 data-cy="book-title">{book.title}</h1>
+          <StyledInput value={book.author} disabled data-cy="book-author" />
+          <StyledTextArea value={truncateText(book.description)} disabled rows={7} data-cy="book-description" />
           <PriceContainer>
-            <h2>${book.price * quantity}.00</h2>
+            <h2 data-cy="book-price">${book.price * quantity}.00</h2>
             <QuantityInput quantity={quantity} setQuantity={setQuantity} />
           </PriceContainer>
           <ButtonContainer>
@@ -68,9 +68,9 @@ const Book = () => {
         <PiPath />
         <h2>VIEW MORE</h2>
       </IconContainer>
-      <MoreBooksContainer>
+      <MoreBooksContainer data-cy="more-books-container">
         {getRandomBooks(books, 5).map((book) => (
-          <BookCard key={book.id} book={book} />
+          <BookCard key={book.id} book={book} data-cy="book-card" />
         ))}
       </MoreBooksContainer>
     </ContantContainer>

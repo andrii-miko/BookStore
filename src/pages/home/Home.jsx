@@ -23,11 +23,17 @@ const Home = () => {
     <ContentContainer>
       <FlexContainer>
         <SearchContainer>
-          <h1>What book you looking for?</h1>
+          <h1>What book are you looking for?</h1>
           <p>Explore our catalog and find your next read.</p>
           <div>
-            <input type="text" placeholder="Type the name of book or author..." onChange={handleSearch} value={query} />
-            <button type="button">
+            <input
+              type="text"
+              placeholder="Type the name of book or author..."
+              onChange={handleSearch}
+              value={query}
+              data-cy="search-input"
+            />
+            <button type="button" data-cy="search-button">
               <CiSearch size={20} />
             </button>
           </div>
@@ -36,7 +42,11 @@ const Home = () => {
       </FlexContainer>
       <BooksGrid>
         {filteredBooks.map((book) => (
-          <BookCard key={book.id} book={book} />
+          <BookCard key={book.id} book={book} data-cy="book-card">
+            <h2 className="book-title" data-cy="book-title">
+              {book.title}
+            </h2>
+          </BookCard>
         ))}
       </BooksGrid>
     </ContentContainer>

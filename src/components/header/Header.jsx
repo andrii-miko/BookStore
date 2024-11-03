@@ -24,7 +24,7 @@ const Header = () => {
       <LinksContainer>
         {isAuth ? (
           <>
-            <Link to={'/add-book'}>
+            <Link to={'/add-book'} data-cy={'add-book'}>
               <PiPlus size={25} />
             </Link>
             <button>
@@ -36,7 +36,9 @@ const Header = () => {
             <Link onClick={handleLogout}>Logout</Link>
           </>
         ) : (
-          <Link to={'/sign-in'}>Login</Link>
+          <Link to={'/sign-in'} data-cy={'login'}>
+            Login
+          </Link>
         )}
       </LinksContainer>
     </HeaderContainer>
