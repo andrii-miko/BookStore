@@ -5,7 +5,7 @@ import { FooterContainer } from './styles';
 
 const Footer = () => {
   return (
-    <FooterContainer>
+    <FooterContainer data-cy={'footer-container'}>
       <span>BookStore project</span>
       <div>
         <Link to={'https://github.com/andrii-miko'} target="blank">

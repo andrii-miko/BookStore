@@ -8,7 +8,7 @@ import { BookMarkContainer, CardContainer } from './styles';
 
 const BookCard = ({ book }) => {
   return (
-    <CardContainer>
+    <CardContainer data-cy={'card-container'}>
       <Link key={book.id} to={`/books/${book.id}`}>
         <img src={book.cover} alt={book.title} />
       </Link>

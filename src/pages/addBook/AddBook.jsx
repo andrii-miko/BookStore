@@ -3,11 +3,12 @@ import { PiPlus } from 'react-icons/pi';
 
 import coverBook from '../../assets/cover-book.png';
 import Button from '../../components/button/Button';
-import { books } from '../../constants/index';
+import useBooks from '../../hooks/useBooks';
 import { StyledInput, StyledTextArea } from '../book/styles';
 import { Container, ContentContainer, FormContainer } from './styles';
 
 const AddBook = () => {
+  const { addBook } = useBooks();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
@@ -16,14 +17,14 @@ const AddBook = () => {
 
   const handleAddBook = () => {
     const newBook = {
-      id: books.length + 1,
+      id: Math.floor(Math.random() * 1000),
       title,
       author,
       cover: imgUrl || coverBook,
       price: parseFloat(price),
       description,
     };
-    books.push(newBook);
+    addBook(newBook);
     setTitle('');
     setAuthor('');
     setDescription('');
