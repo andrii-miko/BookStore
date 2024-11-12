@@ -1,6 +1,6 @@
 import coverBook from '../assets/cover-book.png';
 
-export const books = [
+export const mockedBooks = [
   {
     id: 1,
     title: 'To Kill a Mockingbird',

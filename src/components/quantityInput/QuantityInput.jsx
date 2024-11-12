@@ -13,11 +13,11 @@ const QuantityInput = ({ quantity, setQuantity }) => {
 
   return (
     <QuantityInputContainer>
-      <button onClick={handleDecrease}>
+      <button onClick={handleDecrease} data-cy="quantity-input-decrease">
         <CiCircleMinus size={25} />
       </button>
       <input value={quantity} onChange={(e) => setQuantity(e.target.value)} disabled />
-      <button onClick={handleIncrease}>
+      <button onClick={handleIncrease} data-cy="quantity-input-increase">
         <CiCirclePlus size={25} />
       </button>
     </QuantityInputContainer>
