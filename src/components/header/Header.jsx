@@ -3,11 +3,18 @@ import { IoBookOutline } from 'react-icons/io5';
 import { PiPlus, PiShoppingCartSimpleLight } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
 
+import { useAuthContext } from '../../providers/AuthProvider';
 import { HeaderContainer, LinksContainer, LogoContainer } from './styles';
 
 const Header = () => {
+  const { isAuth, signOut } = useAuthContext();
+
+  const handleLogout = () => {
+    signOut();
+  };
+
   return (
-    <HeaderContainer>
+    <HeaderContainer data-cy={'header-container'}>
       <Link to={'/'}>
         <LogoContainer>
           <IoBookOutline size={20} />
@@ -15,16 +22,22 @@ const Header = () => {
         </LogoContainer>
       </Link>
       <LinksContainer>
-        <Link to={'/add-book'}>
-          <PiPlus size={25} />
-        </Link>
-        <Link>
-          <PiShoppingCartSimpleLight size={25} />
-        </Link>
-        <Link>
-          <CiBookmark size={25} />
-        </Link>
-        <Link to={'/sign-in'}>Login</Link>
+        {isAuth ? (
+          <>
+            <Link to={'/add-book'}>
+              <PiPlus size={25} />
+            </Link>
+            <button>
+              <PiShoppingCartSimpleLight size={25} />
+            </button>
+            <Link>
+              <CiBookmark size={25} />
+            </Link>
+            <Link onClick={handleLogout}>Logout</Link>
+          </>
+        ) : (
+          <Link to={'/sign-in'}>Login</Link>
+        )}
       </LinksContainer>
     </HeaderContainer>
   );

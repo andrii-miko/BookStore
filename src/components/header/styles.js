@@ -6,6 +6,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 75px;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 export const LogoContainer = styled.div`

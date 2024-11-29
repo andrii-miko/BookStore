@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import BookCard from '../../components/bookCard/BookCard';
 import Button from '../../components/button/Button';
 import QuantityInput from '../../components/quantityInput/QuantityInput';
-import { books } from '../../constants';
+import useBooks from '../../hooks/useBooks';
 import {
   BookContainer,
   BookInfoContainer,
@@ -19,6 +19,8 @@ import {
 } from './styles';
 
 const Book = () => {
+  const { books } = useBooks();
+
   const [quantity, setQuantity] = useState(1);
 
   const { bookId } = useParams();

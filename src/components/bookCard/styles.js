@@ -8,8 +8,9 @@ export const CardContainer = styled.div`
   align-items: center;
   gap: 5px;
   img {
+    width: 200px;
+    height: 300px;
     cursor: pointer;
-    width: 100%;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s;
